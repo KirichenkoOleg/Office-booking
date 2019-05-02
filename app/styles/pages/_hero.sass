@@ -2,4 +2,166 @@
     height: 100vh
     background: url(../img/Hero-bg.png) no-repeat center
     background-size: cover
+
+.hero__container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    > div:first-child
+        margin-bottom: 55px
+
+.hero__title
+    color: $primary-color
+    font-size: 42px
+    font-family: $primary-font
+    margin-bottom: 30px
+
+.hero__description-of-services
+    margin: 0
+    color: $primary-color
+    font-size: 20px
+    font-family: $text-font
+
+.hero__form
+    width: 100%
+    max-width: 840px
+
+    fieldset
+        padding: 15px
+        background-color: rgba(38, 38, 38, 0.3)
+        border-radius: 5px
+
+.hero__custom-form-row:first-child
+    display: flex
+    margin-bottom: 10px
+
+    span
+        position: relative
+        
+        i
+            position: absolute
+            left: 20px
+            top: 50%
+            transform: translateY(-50%)
+            color: #3f3f3f
+            font-size: 20px
+
+    input
+        padding-left: 45px
+        height: 50px
+        font-size: 16px
+        color: #8a8a8a
+        font-family: $text-font
+
+        &:nth-child(2)
+            border-top-right-radius: 0
+            border-bottom-right-radius: 0
+        
+        &:last-child
+            border-top-left-radius: 0
+            border-bottom-left-radius: 0
+
+.hero__input-date
+    width: 240px
+
+.hero__custom-form-row:last-child
+    display: flex
+
+.hero__checkbox-container
+    display: flex
+    padding-left: 55px
+    background-color: #ffffff
+    position: relative
+
+    i
+        position: absolute
+        left: 15px
+        top: 50%
+        transform: translateY(-50%) scaleX(-1)
+
+.hero__checkbox-wrapper
+    display: flex
+    // margin-right: 25px
+    margin-right: auto
+
+    label
+        display: flex
+        align-items: center
+        font-size: 16px
+        color: $secondary-color
+        font-family: $text-font
+        position: relative
+        cursor: pointer
+
+        p
+            margin: 0
+        
+        span
+            font-size: 12px
+            font-family: $text-font
+            color: #8c8c8c
+            margin-left: 5px
+
+        &::before
+            content: ""
+            position: absolute
+            left: -20px
+            top: 50%
+            transform: translateY(-50%)
+            display: inline-block
+            height: 16px
+            width: 16px
+            border: 2px solid #1b1c1d
+            border-radius: 3px
+        
+        &::after
+            content: ""
+            position: absolute
+            left: -16px
+            top: 35%
+            display: inline-block
+            height: 6px
+            width: 9px
+            border-left: 2px solid #1b1c1d
+            border-bottom: 2px solid #1b1c1d
+            transform: rotate(-45deg)
+
+.hero__form-checkbox
+    opacity: 0
+    margin-right: 7px
+
+    + label::after
+        content: none
+
+    &:checked + label::after
+        content: ""
+
+    &:focus 
+        + label
+            &::before
+                outline: rgb(59, 153, 252) auto 5px
+
+
+
+.hero__form-custom-button
+    position: relative
+    padding-left: 45px
+    padding-right: 25px
+    margin-left: 10px
+    font-size: 14px
+    font-family: $primary-font
+    color: $primary-color
+    background-color: $hotel-ames-color
+
+    &:hover
+        color: $primary-color
     
+    &:active
+        background-color: #008988
+
+    i
+        left: 20px
+        font-size: 18px
+        color: $primary-color

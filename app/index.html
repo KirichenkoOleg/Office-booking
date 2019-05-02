@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js"></script>
 </head>
+
 <body>
     <header class="header position-absolute">
         <div class="header__menu container">
@@ -19,29 +21,32 @@
                         <img src="./img/Logo.png" class="header__logo-brend" alt="Logo image">
                     </a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
+                    <button class="header__navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="header__navbar-nav navbar-nav">
+
                             <li class="header__nav-item nav-item text-uppercase active">
-                                <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                                <a class="nav-link p-0" href="#">About <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="header__nav-item nav-item text-uppercase">
-                                <a class="nav-link" href="#">Faq</a>
+                                <a class="nav-link p-0" href="#">Faq</a>
                             </li>
                             <li class="header__nav-item nav-item text-uppercase">
-                                <a class="nav-link" href="#">Blog</a>
+                                <a class="nav-link p-0" href="#">Blog</a>
                             </li>
                             <li class="header__nav-item nav-item text-uppercase">
-                                <a class="nav-link" href="#">Support</a>
+                                <a class="nav-link p-0" href="#">Support</a>
                             </li>
                             <li class="header__nav-item nav-item text-uppercase">
-                                <a class="nav-link" href="#">Min bokning 
-                                    <span class="header__bokning-notifications-count-value"></span>
-                                </a>
+                                <a class="nav-link p-0" href="#">Min bokning</a>
+                                <span class="header__bokning-notifications-count-value">1</span>
                             </li>
+
                         </ul>
                     </div>
 
@@ -53,16 +58,120 @@
 
     <main>
         <section class="hero">
-            <div class="container h-100">
-                <div class="row justify-content-center h-100">
+            <div class="hero__container container h-100">
+
+                <div class="row justify-content-center w-100">
                     <div class="col-sm-10 d-flex flex-column justify-content-center align-items-center">
 
-                        <div class="d-flex flex-column justify-content-center">
-                            <h1 class="title text-uppercase">Lorem ipsum dolor sit</h1>
-                        </div>
+                        <h1 class="hero__title text-uppercase">Lorem ipsum dolor</h1>
+                        <p class="hero__description-of-services">Find and book conference rooms, workspace and pop-up offices</p>
 
                     </div>
                 </div>
+
+                <div class="row justify-content-center w-100">
+
+                    <div class="col-12 col-md-10 d-flex justify-content-center">
+                        <form class="hero__form">
+                            <fieldset>
+                                
+                                <div class="hero__custom-form-row">
+                                    <span>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </span>
+                                    <input type="text" class="hero__input-location form-control form-control-lg" id="inputEmail4" placeholder="Location" required>
+                                    <span>
+                                        <i class="far fa-calendar-alt"></i>
+                                    </span>
+                                    <input type="date" id="inputState" class="hero__input-date form-control form-control-lg">
+                                </div>
+
+                                <div class="hero__custom-form-row ">
+                                    <div class="hero__checkbox-container form-control form-control-lg">
+                                        <i class="fas fa-user-friends"></i>
+
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-sizeXs">
+                                            <label class="form-check-label" for="hero__checkbox-sizeXs">
+                                                <p class="hero__office-sizes">XS
+                                                    <span>2-4 personer</span>
+                                                </p>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-sizeS">
+                                            <label class="form-check-label" for="hero__checkbox-sizeS">
+                                                <p class="hero__office-sizes">S
+                                                    <span>5-8 personer</span>
+                                                </p>
+                                            </label>
+                                        </div>
+
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-sizeM">
+                                            <label class="form-check-label" for="hero__checkbox-sizeM">
+                                                <p class="hero__office-sizes">M
+                                                    <span>9-12 personer</span>
+                                                </p>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-sizeL">
+                                            <label class="form-check-label" for="hero__checkbox-sizeL">
+                                                <p class="hero__office-sizes">L
+                                                    <span>13-20 personer</span>
+                                                </p>
+                                            </label>
+                                        </div>
+
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-all">
+                                            <label class="form-check-label" for="hero__checkbox-all">
+                                                <p class="hero__office-sizes"> Alla </p>
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <button type="submit" class="hero__form-custom-button btn"> 
+                                        <i class="fas fa-search position-absolute"></i>
+                                        SÖK
+                                    </button>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+
+                </div>
+                
+                <!-- <form class="hero__form">
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-7 m-0 p-0">
+                            <input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="Location" required>
+                        </div>
+                        <div class="form-group col-md-3 m-0 p-0">
+                            <input type="date" id="inputState" class="form-control form-control-lg">
+                        </div>
+                    </div>
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-8">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">  XS <span>2-4 personer</span> </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button type="submit" class="btn btn-primary">SÖK</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form> -->
+
             </div>
         </section>
 
@@ -71,4 +180,5 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -1,10 +1,59 @@
 .header
     top: 20px
     width: 100%
+    z-index: 1
 
 .header__nav-item
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    padding: 12px 15px
+    
+    &:hover
+        background-color: #03b1af
+        border-radius: 20px
+
     a
         font-size: 12px
         font-weight: 600
         color: $primary-color
         font-family: $primary-font
+
+    .header__bokning-notifications-count-value
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 20px
+        width: 20px
+        background-color: #f55e4d
+        border-radius: 10px
+        margin-left: 10px
+
+.header__navbar-toggler
+    width: 30px
+    padding: 0
+
+    &:focus
+        border: none
+        outline: none
+
+    span
+        width: 100%
+        background-color: #fff
+        height: 2px
+        position: relative
+
+        &:before,
+        &:after 
+            content: ''
+            width: 100%
+            position: absolute
+            background-color: #fff
+            height: 2px
+            left: 0
+
+        &:before
+            top: -10px
+
+        &:after 
+            bottom: -10px
