@@ -7,6 +7,8 @@
     <title>Testing-2019</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js"></script>
 </head>
@@ -76,14 +78,11 @@
                             <fieldset>
                                 
                                 <div class="hero__custom-form-row">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    <input type="text" class="hero__input-location form-control form-control-lg" id="inputEmail4" placeholder="Location" required>
-                                    <span>
-                                        <i class="far fa-calendar-alt"></i>
-                                    </span>
-                                    <input type="date" id="inputState" class="hero__input-date form-control form-control-lg">
+                                    <span> <i class="fas fa-map-marker-alt"></i> </span>
+                                    <input type="text" class="hero__input-location form-control form-control-lg" id="inputLocation" placeholder="Location" required>
+
+                                    <span> <i class="far fa-calendar-alt"></i> </span>
+                                    <input type="text" id="inputDate" class="hero__input-date form-control form-control-lg">
                                 </div>
 
                                 <div class="hero__custom-form-row ">
@@ -250,12 +249,36 @@
             </div>
         </section>
 
-        <section class="rum"></section>
+        <section class="rum">
+            <div class="container pb-100">
+                <div class="row">
+
+                    <div class="col-12 col-md-6 d-flex justify-content-center">
+                        <img src="./img/Rum-icon.png" alt="image for office photo">
+                    </div>
+
+                    <div class="col-12 col-md-5 rum__info-container">
+                        <h3 class="rum__info-title text-uppercase">Lorem ipsum dolor</h3>
+                        <p class="rum__info-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat commodi deleniti, odio exercitationem dolor blanditiis reiciendis adipisci doloribus impedit cupiditate architecto odit, molestias illo, error consequatur? Recusandae magni assumenda ipsa?</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container-fluid rum__controls">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 text-center">12345</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places‌​&sensor=false"></scr‌​ipt> -->
+
 </body>
 
 </html>

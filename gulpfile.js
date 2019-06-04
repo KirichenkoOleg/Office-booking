@@ -20,19 +20,19 @@ const path = {
 			"app/styles/**/*.sass"
 		],
 		js: [
-			// "app/js/libs/*.js",
-			// "app/js/bootstrap.min.js"
 			"app/js/script.js"
 		],
 		image: "app/img/**/*",
-		fonts: "app/fonts/**/*"
+		fonts: "app/fonts/**/*",
+		data: "app/data/*.json"
 	},
 	build: {
 		html: "build/",
 		css: "build/css/",
 		js: "build/js/",
 		image: "build/img/",
-		fonts: "build/fonts/"
+		fonts: "build/fonts/",
+		data: "build/data/"
 	}
 };
 
@@ -48,10 +48,12 @@ gulp.task('sass', function(){
 		.pipe(reload({stream: true}));
 });
 
-gulp.task('script', function() {  
+gulp.task('script', function() {
     return gulp.src(path.src.js)
-        .pipe(concat('main.js'))
-        .pipe(uglify())
+		.pipe(concat('main.js'))
+		.pipe(uglify().on('error', function(e){
+			console.log( e );
+		}))
 		.pipe(gulp.dest(path.build.js))
 		.pipe(reload({stream: true}));
 });
@@ -86,13 +88,20 @@ gulp.task('images', function() {
 		.pipe(gulp.dest(path.build.image));
 });
 
+gulp.task('datas', function(){
+	return gulp.src(path.src.data)
+		.pipe(gulp.dest(path.build.data))
+		.pipe(reload({stream: true}));
+});
+
 gulp.task('build', shell.task([
 	'gulp clean',
 	'gulp html',
 	'gulp sass',
 	'gulp script',
 	'gulp images',
-	'gulp fonts'
+	'gulp fonts',
+	'gulp datas'
 	]));
 
 gulp.task('browser-sync', function() {
@@ -108,6 +117,7 @@ gulp.task('watch', function(){
 	gulp.watch('app/styles/**/*.sass', ['sass'])
 	gulp.watch('app/styles/main.sass', ['sass'])
 	gulp.watch('app/js/*.js', ['script'])
+	gulp.watch('app/data/*.json', ['datas'])
 });
 
 gulp.task('clean', function() {
