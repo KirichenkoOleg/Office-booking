@@ -32,7 +32,6 @@ $(function() {
             });
 
             //--дальше для Google API - Place Autocomplete
-            // var keyForApi = "AIzaSyDizAEhG1IKMAVXWb8NtdDv7qVMhlmEAvM";
             // var strReq = request.term;//из формы
             // var urlForRequest = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + strReq + "&types=(cities)&language=en-GB&key=" + keyForApi;
             // console.log( "мой URL: " + urlForRequest );
