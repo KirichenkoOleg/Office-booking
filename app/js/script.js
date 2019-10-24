@@ -37,15 +37,9 @@ $(function() {
             // var urlForRequest = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + strReq + "&types=(cities)&language=en-GB&key=" + keyForApi;
             // console.log( "мой URL: " + urlForRequest );
 
-            
-
         },
         // minLength: 2,
     });
-
-
-
-
 
     $('#inputDate').datepicker({
         dateFormat: 'dd M yy',
@@ -55,6 +49,13 @@ $(function() {
             // console.log( `Выбранная вами дата ${dateText}` ); 
         }
     });
+
+    $( "#slider" ).slider({
+        animate: "slow",
+        range: "min",
+        value: 6
+    });
+
 
 
 });
