@@ -1,19 +1,17 @@
 
-const gulp = require ("gulp");//подключаем gulp
-const uglify = require ("gulp-uglify");//минифицирование js
-const concat = require ("gulp-concat");//конкатынация файлов, склеивает файдлы
-const minifyCss = require ("gulp-minify-css");
-const imagemin = require('gulp-imagemin');
-const clean = require('gulp-clean');
-const shell = require('gulp-shell'); //позволит отследить последовательность выполнения задач
-const browserSync = require('browser-sync');
-const runSequence = require('run-sequence'); //запускает задачи по очереди
-const reload = browserSync.reload;
-const sass = require('gulp-sass');
-const sourcemaps = require ('gulp-sourcemaps');
+const { src, dest, series, parallel, watch } = require('gulp'); //загружаем, подключаем gulp
+const sass = require('gulp-sass'); //компилятор в css
+const uglify = require('gulp-uglify'); //подкл. пакет минифицирования .js файлов
+const concat = require('gulp-concat'); //склеивает файлы, в один
+const cleanCSS = require('gulp-clean-css'); //сжимает css файлы
+const del = require('del'); //удаление папки перед сборкой
+const imagemin = require('gulp-imagemin'); //оптимизация изображений
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload; //перезегрузка сервера
+const sourcemaps = require ('gulp-sourcemaps'); //позволяет дебажить минифицированный код в браузере
 
 const path = {
-	src: {
+	source: {
 		html: "app/index.html",
 		styles: [
 			"app/styles/main.sass",
@@ -37,96 +35,88 @@ const path = {
 };
 
 
-gulp.task('sass', function(){
-	return gulp.src(path.src.styles)
-		.pipe(sourcemaps.init()) //активация sourcemaps
-		.pipe(sass().on('error', sass.logError)) //компиляция в css
-		.pipe(minifyCss()) //минификация
-		.pipe(concat('style.css')) // соединение в один
-		.pipe(sourcemaps.write('.')) //активация sourcemaps
-		.pipe(gulp.dest(path.build.css))
-		.pipe(reload({stream: true}));
-});
+function html() {
+	return src(path.source.html)
+		.pipe(dest(path.build.html))
+		.pipe(reload({stream:true})); //перезагрузки сервера
+}
 
-gulp.task('script', function() {
-    return gulp.src(path.src.js)
+function script() {
+	return src(path.source.js)
+		.pipe(sourcemaps.init())
+		.pipe(uglify())
 		.pipe(concat('main.js'))
-		.pipe(uglify().on('error', function(e){
-			console.log( e );
-		}))
-		.pipe(gulp.dest(path.build.js))
-		.pipe(reload({stream: true}));
-});
+		.pipe(sourcemaps.write())
+		.pipe(dest(path.build.js))
+		.pipe(reload({stream:true}));
+}
 
-gulp.task('html', function() {
-	return gulp.src(path.src.html)
-		.pipe(gulp.dest(path.build.html))
-		.pipe(reload({stream: true}));
-});
+function css() {
+	return src(path.source.styles)
+		.pipe(sourcemaps.init())// активация sourcemaps
+		.pipe(sass().on('error', sass.logError))
+		.pipe(concat('style.css'))
+		.pipe(cleanCSS()) //минификация
+		.pipe(sourcemaps.write())// активация sourcemaps
+		.pipe(dest(path.build.css))
+		.pipe(reload({stream:true}));
+}
 
-gulp.task('fonts', function(){
-	return gulp.src(path.src.fonts)
-		.pipe(gulp.dest(path.build.fonts))
-		.pipe(reload({stream: true}));
-});
-
-gulp.task('images', function() {
-	return gulp.src(path.src.image)
+function images() {
+	return src(path.source.image)
 		.pipe(imagemin([
-		    imagemin.gifsicle({interlaced: true}),
-		    imagemin.jpegtran({progressive: true}),
-		    imagemin.optipng({optimizationLevel: 5}),
+			imagemin.gifsicle({interlaced: true}),
+			imagemin.mozjpeg({quality: 75, progressive: true}),
+			imagemin.optipng({optimizationLevel: 5}),
 		    imagemin.svgo({
-		        plugins: [
-		            {removeViewBox: true},
-		            {cleanupIDs: false}
-		        ]
-		    })
+				plugins: [
+					{removeViewBox: true},
+					{cleanupIDs: false}
+				]
+			})
 		], {
 		    verbose: true
 		}))
-		.pipe(gulp.dest(path.build.image));
-});
+		.pipe(dest(path.build.image));
+};
 
-gulp.task('datas', function(){
-	return gulp.src(path.src.data)
-		.pipe(gulp.dest(path.build.data))
-		.pipe(reload({stream: true}));
-});
+function fonts() {
+	return src(path.source.fonts)
+		.pipe(dest(path.build.fonts));
+}
 
-gulp.task('build', shell.task([
-	'gulp clean',
-	'gulp html',
-	'gulp sass',
-	'gulp script',
-	'gulp images',
-	'gulp fonts',
-	'gulp datas'
-	]));
+function datas() {
+	return src(path.source.data)
+		.pipe(dest(path.build.data));
+};
 
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./build" //прописываем адрес откуда открыть
-        }
-    });
-});
+function cleanFolder() {
+	return del(['build']);
+};//задача удаления файла или папки
 
-gulp.task('watch', function(){
-	gulp.watch('app/index.html', ['html'])
-	gulp.watch('app/styles/**/*.sass', ['sass'])
-	gulp.watch('app/styles/main.sass', ['sass'])
-	gulp.watch('app/js/*.js', ['script'])
-	gulp.watch('app/data/*.json', ['datas'])
-});
+function browser_Sync() {
+	browserSync.init({
+		server: {
+			baseDir: "./build"
+		}
+	});
+};
 
-gulp.task('clean', function() {
-	return gulp.src('build')
-		.pipe(clean());
-});
+function watcher() {
+	watch('app/index.html', html);
+	watch('app/styles/**/*.sass', css);
+	watch('app/js/*.js', script);
+	watch('app/data/*.json', datas);
+};
 
-gulp.task('server', function(){
-    runSequence('build', 'browser-sync', 'watch');
-});
+const build = series(cleanFolder, parallel(html, css, script, images, fonts, datas));
+const server = series(build, parallel(watcher, browser_Sync));
 
-gulp.task('default', ['server']);
+exports.html = html;
+exports.css = css;
+exports.script = script;
+exports.images = images;
+exports.clean = cleanFolder;
+exports.build  = build;
+exports.server  = server;
+exports.default  = server;
