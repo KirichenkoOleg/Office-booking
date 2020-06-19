@@ -85,6 +85,11 @@ function fonts() {
 		.pipe(dest(path.build.fonts));
 }
 
+function docs() {
+	return src("./build/**/*")
+		.pipe(dest("./docs"));
+}// созданиe папки для gh-pages
+
 function datas() {
 	return src(path.source.data)
 		.pipe(dest(path.build.data));
@@ -103,14 +108,14 @@ function browser_Sync() {
 };
 
 function watcher() {
-	watch('app/index.html', html);
-	watch('app/styles/**/*.sass', css);
-	watch('app/js/*.js', script);
-	watch('app/data/*.json', datas);
+	watch('app/index.html', series(html, docs));
+	watch('app/styles/**/*.sass', series(css, docs));
+	watch('app/js/*.js', series(script, docs));
+	watch('app/data/*.json', series(datas, docs));
 };
 
 const build = series(cleanFolder, parallel(html, css, script, images, fonts, datas));
-const server = series(build, parallel(watcher, browser_Sync));
+const server = series(build, docs, parallel(watcher, browser_Sync));
 
 exports.html = html;
 exports.css = css;

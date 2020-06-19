@@ -1,13 +1,9 @@
-# Instruction:
+# Office booking site
 
-## Clone the project:
+My practice project
 
-git clone https://github.com/KirichenkoOleg/Office-booking.git
+## You can run this project locally just do:
 
-## Upload npm packages:
-
-npm install
-
-## Create build folder and run server:
-
-gulp server
+* clone the project: **`git clone https://github.com/KirichenkoOleg/Office-booking.git`**
+* upload npm packages: **`npm install`**
+* create build folder and run server: **`gulp server`**

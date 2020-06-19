@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing-2019</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+
+<body>
+    <header class="header position-absolute">
+        <div class="header__menu container">
+            <div class="row">
+
+                <nav class="header__navbar navbar navbar-expand-lg w-100">
+                    <a class="header__navbar-brend navbar-brand" href="#">
+                        <img src="./img/Logo.png" class="header__logo-brend" alt="Logo image">
+                    </a>
+
+                    <button class="header__navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="header__navbar-nav navbar-nav">
+
+                            <li class="header__nav-item nav-item text-uppercase active">
+                                <a class="nav-link p-0" href="#">About <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="header__nav-item nav-item text-uppercase">
+                                <a class="nav-link p-0" href="#">Faq</a>
+                            </li>
+                            <li class="header__nav-item nav-item text-uppercase">
+                                <a class="nav-link p-0" href="#">Blog</a>
+                            </li>
+                            <li class="header__nav-item nav-item text-uppercase">
+                                <a class="nav-link p-0" href="#">Support</a>
+                            </li>
+                            <li class="header__nav-item nav-item text-uppercase">
+                                <a class="nav-link p-0" href="#">Min bokning</a>
+                                <span class="header__bokning-notifications-count-value">1</span>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero__container container h-100">
+
+                <div class="row justify-content-center w-100">
+                    <div class="col-sm-10 d-flex flex-column justify-content-center align-items-center">
+
+                        <h1 class="hero__title text-uppercase">Lorem ipsum dolor</h1>
+                        <p class="hero__description-of-services">Find and book conference rooms, workspace and pop-up offices</p>
+
+                    </div>
+                </div>
+
+                <div class="row justify-content-center w-100">
+
+                    <div class="col-12 col-md-10 d-flex justify-content-center">
+                        <form class="hero__form">
+                            <fieldset>
+                                
+                                <div class="hero__custom-form-row">
+                                    <span> <i class="fas fa-map-marker-alt"></i> </span>
+                                    <input type="text" class="hero__input-location form-control form-control-lg" id="inputLocation" placeholder="Location" required>
+
+                                    <span> <i class="far fa-calendar-alt"></i> </span>
+                                    <input type="text" id="inputDate" class="hero__input-date form-control form-control-lg">
+                                </div>
+
+                                <div class="hero__custom-form-row ">
+                                    <div class="hero__checkbox-container form-control form-control-lg">
+                                        <i class="fas fa-user-friends"></i>
+
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-sizeXs">
+                                            <label class="form-check-label" for="hero__checkbox-sizeXs">
+                                                <p class="hero__office-sizes">XS
+                                                    <span>2-4 personer</span>
+                                                </p>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-sizeS">
+                                            <label class="form-check-label" for="hero__checkbox-sizeS">
+                                                <p class="hero__office-sizes">S
+                                                    <span>5-8 personer</span>
+                                                </p>
+                                            </label>
+                                        </div>
+
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-sizeM">
+                                            <label class="form-check-label" for="hero__checkbox-sizeM">
+                                                <p class="hero__office-sizes">M
+                                                    <span>9-12 personer</span>
+                                                </p>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-sizeL">
+                                            <label class="form-check-label" for="hero__checkbox-sizeL">
+                                                <p class="hero__office-sizes">L
+                                                    <span>13-20 personer</span>
+                                                </p>
+                                            </label>
+                                        </div>
+
+                                        <div class="hero__checkbox-wrapper">
+                                            <input class="hero__form-checkbox" type="checkbox" id="hero__checkbox-all">
+                                            <label class="form-check-label" for="hero__checkbox-all">
+                                                <p class="hero__office-sizes"> Alla </p>
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <button type="submit" class="hero__form-custom-button btn"> 
+                                        <i class="fas fa-search position-absolute"></i>
+                                        SÖK
+                                    </button>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+
+                </div>
+
+                <p class="hero__text-contact-us">For bigger quotes <a href="" class="hero__contack-us-link">contact us</a> </p>
+                
+                <button class="hero__btn-how-it-work text-uppercase"> How it works </button>
+
+            </div>
+        </section>
+
+        <section class="office-gallery">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 class="office-gallery__block-title text-uppercase">Lorem ipsum dolor sit amet</h3>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="office-gallery__office-item">
+
+                            <div class="position-relative w-100">
+                                <img src="./img/Our-offices/office-XS.png" alt="image ofice">
+                                <img src="./img/Our-offices/icon-xs.png" class="office-gallery__size-icon" alt="icon office XS">
+                            </div>
+
+                            <div class="office-gallery__office-data text-center">
+                                <h3 class="office-gallery__name-place-xs">Grand Hotel Stockholm</h3>
+                                <h5 class="office-gallery__address-office">Södra Blasieholmshamnen 8</h5>
+                                <p class="office-gallery__info-about">Stockholm, Minst 8 m<sup>2</sup> </p>
+                            </div>
+
+                            <p class="office-gallery__office-price text-center">250 kr</p>
+                            <p class="office-gallery__time-period text-center">1 timme</p>
+
+                            <a href="" class="office-gallery__btn-office-read-more text-uppercase">Läs mer</a>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="office-gallery__office-item">
+
+                            <div class="position-relative w-100">
+                                <img src="./img/Our-offices/office-S.png" alt="image ofice">
+                                <img src="./img/Our-offices/icon-s.png" class="office-gallery__size-icon" alt="icon office S">
+                            </div>
+
+                            <div class="office-gallery__office-data text-center">
+                                <h3 class="office-gallery__name-place-s">Grand Hotel Stockholm</h3>
+                                <h5 class="office-gallery__address-office">Södra Blasieholmshamnen 8</h5>
+                                <p class="office-gallery__info-about">Stockholm, Minst 14 m<sup>2</sup> </p>
+                            </div>
+
+                            <p class="office-gallery__office-price text-center">250 kr</p>
+                            <p class="office-gallery__time-period text-center">1 timme</p>
+
+                            <a href="" class="office-gallery__btn-office-read-more text-uppercase">Läs mer</a>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="office-gallery__office-item">
+
+                            <div class="position-relative w-100">
+                                <img src="./img/Our-offices/office-M.png" alt="image ofice">
+                                <img src="./img/Our-offices/icon-m.png" class="office-gallery__size-icon" alt="icon office M">
+                            </div>
+
+                            <div class="office-gallery__office-data text-center">
+                                <h3 class="office-gallery__name-place-m">Grand Hotel Stockholm</h3>
+                                <h5 class="office-gallery__address-office">Södra Blasieholmshamnen 8</h5>
+                                <p class="office-gallery__info-about">Stockholm, Minst 20 m<sup>2</sup> </p>
+                            </div>
+
+                            <p class="office-gallery__office-price text-center">250 kr</p>
+                            <p class="office-gallery__time-period text-center">1 timme</p>
+
+                            <a href="" class="office-gallery__btn-office-read-more text-uppercase">Läs mer</a>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="office-gallery__office-item">
+
+                            <div class="position-relative w-100">
+                                <img src="./img/Our-offices/office-L.png" alt="image ofice">
+                                <img src="./img/Our-offices/icon-l.png" class="office-gallery__size-icon" alt="icon office L">
+                            </div>
+
+                            <div class="office-gallery__office-data text-center">
+                                <h3 class="office-gallery__name-place-l">Grand Hotel Stockholm</h3>
+                                <h5 class="office-gallery__address-office">Södra Blasieholmshamnen 8</h5>
+                                <p class="office-gallery__info-about">Stockholm, Minst 28 m<sup>2</sup> </p>
+                            </div>
+
+                            <p class="office-gallery__office-price text-center">250 kr</p>
+                            <p class="office-gallery__time-period text-center">1 timme</p>
+
+                            <a href="" class="office-gallery__btn-office-read-more text-uppercase">Läs mer</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="offices">
+            <div class="container pb-100">
+                <div class="row">
+
+                    <div class="col-12 col-md-6 d-flex justify-content-center">
+                        <img src="./img/offices-icon.png" alt="image for office photo">
+                    </div>
+
+                    <div class="col-12 col-md-5 offices__info-container">
+                        <h3 class="offices__info-title text-uppercase">Lorem ipsum dolor</h3>
+                        <p class="offices__info-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat commodi deleniti, odio exercitationem dolor blanditiis reiciendis adipisci doloribus impedit cupiditate architecto odit, molestias illo, error consequatur? Recusandae magni assumenda ipsa?</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container-fluid offices__controls">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 d-flex flex-column">
+
+                            <div class="offices__control-slider" id="slider"></div>
+
+                            <ul class="offices__control-range d-flex">
+                                <li class="offices__item-size">
+                                    <p>x-Smoll</p>
+                                    <span>2-4 personer</span>
+                                </li>
+                                <li class="offices__item-size">
+                                    <p>Small</p>
+                                    <span>5-8 personer</span>
+                                </li>
+                                <li class="offices__item-size">
+                                    <p>Medium</p>
+                                    <span>9-12 personer</span>
+                                </li>
+                                <li class="offices__item-size">
+                                    <p>Large</p>
+                                    <span>13-20 personer</span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
