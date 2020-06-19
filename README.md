@@ -2,6 +2,10 @@
 
 My practice project
 
+## You can watch this page here 
+
+<https://kirichenkooleg.github.io/Office-booking/>
+
 ## You can run this project locally just do:
 
 * clone the project: **`git clone https://github.com/KirichenkoOleg/Office-booking.git`**
